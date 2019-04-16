@@ -2,11 +2,9 @@ def join_across(text1, text2):
     list1 = list(text1)
     list2 = list(text2)
     joined = []
-    for i in range(max(len(list1), len(list2))):
-        if i < len(list1):
-            joined.append(list1[i])
-        if i < len(list2):
-            joined.append(list2[i])
+    for (char1, char2) in zip(list1,list2):
+        joined.append(char1)
+        joined.append(char2)
     return "".join(joined)
 
 
