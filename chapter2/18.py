@@ -2,13 +2,12 @@ import sys
 
 file = "hightemp.txt"
 
-row1 = []
+row3 = []
 
 with open(file) as f:
     for row in f:
         for i, word in enumerate(row.split("\t")):
-            if i == 0:
-                row1.append(word)
+            if i == 2:
+                row3.append(word)
 
-
-print(list(set(row1)))
+print(sorted(row3))
