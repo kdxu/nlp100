@@ -9,9 +9,10 @@
 """
 
 import json
-
-with open("chapter3/jawiki-country.json") as f:
-    lines = f.readlines()
-    articles =  [json.loads(line) for line in lines]
-    article = [article for article in articles if -1 < article['title'].find('イギリス')]
-    print(article[0]['text'])
+def get_uk_article():
+        with open("chapter3/jawiki-country.json") as f:
+        lines = f.readlines()
+        articles =  [json.loads(line) for line in lines]
+        article = [article for article in articles if -1 < article['title'].find('イギリス')]
+        return article[0]['text']
+        
