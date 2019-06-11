@@ -87,24 +87,25 @@ re.DOTALL
 from q20 import get_uk_article
 import re
 
-article = get_uk_article()
+def get_basic_info():
+    article = get_uk_article()
 
-pattern = re.compile(r'''
-    ^{{基礎情報
-    (.+?)
-    }}$
-''', re.DOTALL + re.MULTILINE + re.VERBOSE)
+    pattern = re.compile(r'''
+        ^{{基礎情報
+        (.+?)
+        }}$
+    ''', re.DOTALL + re.MULTILINE + re.VERBOSE)
 
-base_info = pattern.findall(article)
+    base_info = pattern.findall(article)
+    pattern2 = re.compile(r'''
+        ^\|
+        (.+?)\s*=\s*
+        (.+?)
+        (?:
+        (?=\n\|) # 改行 + (|の手前)
+        | (?=\n$) # 改行 + (終端$の手前)
+        )
+    ''', re.DOTALL + re.MULTILINE + re.VERBOSE)
 
-pattern2 = re.compile(r'''
-    ^\|(.+?)\s=\s(.+?)\n(?:\||$)
-''', re.DOTALL + re.MULTILINE + re.VERBOSE)
-
-key_value = pattern2.findall(base_info[0])
-
-# print(article)
-print(key_value)
-# print(dict(key_value)['公式国名'])
-
-# [[駐日英国大使館]]は「英国」を用いている��か
+    key_value = pattern2.findall(base_info[0])
+    return key_value
