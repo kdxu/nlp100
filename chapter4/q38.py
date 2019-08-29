@@ -32,5 +32,5 @@ for item in text_list:
 cleaned_data = list(map(list, zip(*result.items())))
 #print(cleaned_data[1][:100])
 
-plt.hist(cleaned_data[1], bins=50, range=(1,200))
+plt.hist(cleaned_data[1], bins=10, range=(1,50))
 plt.show()
