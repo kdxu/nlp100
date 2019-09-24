@@ -47,17 +47,21 @@ def get_neko_cabocha_lines():
     with open("chapter5/neko.txt.cabocha") as f:
         return f.readlines()
 
-result = []
-for line in get_neko_cabocha_lines():
-    if line.startswith("*") or line.startswith("EOS"):
-        continue
-    
-    l1 = line.split("\t")
-    surface = l1[0]
-    l2 = l1[1].split(",")
-    pos = l2[0]
-    pos1 = l2[1]
-    base = l2[6]
-    result.append(Morph(surface,base,pos,pos1))
+def get_Morph_list():
+    result = []
+    for line in get_neko_cabocha_lines():
+        if line.startswith("*") or line.startswith("EOS"):
+            continue
+        
+        l1 = line.split("\t")
+        surface = l1[0]
+        l2 = l1[1].split(",")
+        pos = l2[0]
+        pos1 = l2[1]
+        base = l2[6]
+        result.append(str(Morph(surface,base,pos,pos1)))
+    return result
 
-print(result[2])
+#result = get_Morph_list()
+
+#print(result[2])
