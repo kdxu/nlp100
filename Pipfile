@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+matplotlib = "==3.1.1"
+mecab-python3 = "==0.996.2"
+numpy = "==1.17.0"
+requests = "==2.22.0"
+#cabocha-python = "*"
+setuptools = "*"
+cabocha-python = "*"
+
+[requires]
+python_version = "3.7.0"
+
+[scripts]
+exec = "python3"
