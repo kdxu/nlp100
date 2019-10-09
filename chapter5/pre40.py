@@ -1,4 +1,5 @@
 import CaboCha
+import copy
 
 def get_neko_lines():
     with open("chapter4/neko.txt") as f:
@@ -18,17 +19,21 @@ def get_neko_cabocha_lines():
     
 plist = []
 
-def get_parse_neko_trees():
+def store_parse_neko_trees():
     sentences = get_neko_lines()
-    with open("chapter5/neko.txt.cabocha", mode='w') as output_file:
-        trees = []
+    with open("chapter5/neko_tree.txt.cabocha", mode='w') as output_file:
+  #      trees = []
+        parser = CaboCha.Parser()
         for sentence in sentences:
-            parser = CaboCha.Parser()
             tree = parser.parse(sentence)            
-            trees.append(tree)
-            plist.append(parser)
-        return trees
+            output_file.write(tree.toString(CaboCha.FORMAT_TREE))
+ #           plist.append(parser)
+   #     return trees
 
+def get_parse_neko_trees():
+    with open("chapter5/neko_tree.txt.cabocha") as f:
+        return f.readlines()
+    
 """
 def parse(sentences):
     trees = []
