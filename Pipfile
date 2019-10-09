@@ -17,3 +17,6 @@ python_version = "3.7.0"
 
 [scripts]
 exec = "python3"
+
+[dev-packages]
+pylint = "*"
