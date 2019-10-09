@@ -1,5 +1,12 @@
 # nlp100
 
+## neko.txt のダウンロード
+
+```shell
+$ cd chapter4/
+$ wget http://www.cl.ecei.tohoku.ac.jp/nlp100/data/neko.txt
+```
+
 ## cabocha のインストール
 
 ### homebrew の場合
